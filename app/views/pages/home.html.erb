@@ -12,3 +12,16 @@
 <%= link_to 'Sign in', new_user_session_path %>
 
 <% end %>-->
+
+
+
+<% if user_signed_in? %>
+
+<h2>To a page confirmation signin message</h2>
+ <h6>Thank you!You have successfully logged in </h6>
+  
+<% else %>
+  <h3>Welcome</h3>
+  
+  <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-large' %>
+<% end %>
