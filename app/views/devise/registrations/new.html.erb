@@ -25,7 +25,11 @@
   <br/>
 
   <div class="form-group">
-    <%= f.submit "Sign up" , class: "btn btn-primary"%> <span><%= render "devise/shared/links" %></span>
+    <%= f.submit "Sign up" ,class: "button button-primary"%>
+    <br/>
+     <span><%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+<% end -%></span>
    
   </div>
   

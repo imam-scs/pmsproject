@@ -8,6 +8,38 @@ body {
   text-align: left;
 }
 
+.button-primary {
+    background-color: #40d8f0;
+    border-color: #40d8f0;
+    color: #ffffff;
+     height:30px;
+    
+}
+
+.button {
+    background-color: #40d8f0;
+    border-color: #40d8f0;
+    color: #ffffff;
+       
+    height:30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+
+}
+
+a {
+    color: #f05f40;
+ 
+    transition: all .2s;
+}
+
+
+
+
+
 
 
 
