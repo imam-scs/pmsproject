@@ -1,5 +1,96 @@
-<p>Welcome <%= @email %>!</p>
+<!-- <p>Welcome <%= @email %>!</p>
 
 <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p -->>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+ .fixed-header{
+        top: 0;
+        font-size: 25px;
+        font-weight: bold; 
+        height: 50px;
+       
+    }
+
+      .fixed-header, .fixed-footer{
+        width: 60%;
+        margin-left: 6%;
+        position: fixed;        
+        background: lightblue;
+        padding: 10px 0;
+        color: #fff;
+        height: 20px;
+        text-align: center;
+    }
+     .fixed-footer{
+        bottom: 0;
+        clear:both;
+    } 
+    .button {
+    /*background-color: #008CBA;*/
+     background-color:white;
+    border-style: groove;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+  .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+        border: 1px;
+
+    }
+     .container p{
+        line-height: 20px; 
+        margin-left: 4%;
+    }
+</style>
+  </head>
+  <body>
+       <div class="fixed-header">
+            <div class="container"> PMS Project</div>
+       </div>
+
+       <div class="container">
+		    <p>Welcome <%= @email %>!</p>
+		    <p>You can confirm your account email through the link below:</p>
+
+
+		   
+           <!-- <p><%= link_to '<button type="button">Confirm my account </button>', confirmation_url(@resource, confirmation_token: @token) %>
+           </p>  -->
+        
+
+          <!--  <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class: 'button'%></p> -->
+ 
+           <p><%= link_to 'Confirm my account', user_confirmation_url(confirmation_token: @token), class: 'button'%></p> 
+          
+   		   
+	 
+       </div>
+
+ 
+         <div class="fixed-footer">
+
+            <div class="container">Copyright &copy; 2018 SCS Pvt Ltd..</div>
+
+          </div>
+   </body>
+</html>

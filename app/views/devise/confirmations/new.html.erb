@@ -1,5 +1,5 @@
-<h2>Resend confirmation instructions</h2>
-
+<h2 style="text-align: center;">Resend confirmation instructions</h2>
+<div class="authform">
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -12,5 +12,6 @@
     <%= f.submit "Resend confirmation instructions", class: "button button-primary" %>
   </div>
 <% end %>
+</div>
 
 
