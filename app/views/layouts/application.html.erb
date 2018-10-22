@@ -65,6 +65,7 @@
                  <% if user_signed_in? %>
                 
             
+
                      <li class="active"><a href="/users/edit">Edit profile</a></li>
                       <li class="active"><!-- <a data-method="delete" href="/users/sign_out">Sign Out</a> --><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
 
@@ -72,6 +73,7 @@
                  <% else %>
                       <li class="active"><a href="/users/sign_up">Sign Up</a></li>
                       <li class="active"><a href="/users/sign_in">Login</a></li>
+
                  <% end %>
                   
               </ul>

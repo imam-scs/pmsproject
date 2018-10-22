@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-        :recoverable, :rememberable,:trackable, :timeoutable,:validatable
+        :recoverable, :rememberable,:trackable, :timeoutable,:validatable,:lockable
 # validates_confirmation_of :password
 #  validates_presence_of     :password, if: :password_required?
 #           validates_confirmation_of :password, if: :password_required?
@@ -22,6 +22,10 @@ class User < ApplicationRecord
 # def email_required?
 #    true
 # end
+
+def remember_me
+    true
+  end
 
 protected
   def confirmation_required?
