@@ -1,6 +1,9 @@
 class User < ApplicationRecord
 
-
+belongs_to :organization , required: false
+# accepts_nested_attributes_for :organization
+# validates :email, presence: true, uniqueness: {scope: :oraganization_id}
+ 
  after_update :send_password_change_email, if: :needs_password_change_email?
 
   # Include default devise modules. Others available are:
