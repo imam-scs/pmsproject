@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Taskdetails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Project</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @taskdetails.each do |taskdetail| %>
+      <tr>
+        <td><%= taskdetail.name %></td>
+        <td><%= taskdetail.project_id %></td>
+        <td><%= link_to 'Show', taskdetail %></td>
+        <td><%= link_to 'Edit', edit_taskdetail_path(taskdetail) %></td>
+        <td><%= link_to 'Destroy', taskdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Taskdetail', new_taskdetail_path %>

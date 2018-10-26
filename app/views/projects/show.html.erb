@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prjname:</strong>
+  <%= @project.prjname %>
+</p>
+
+<p>
+  <strong>Prjtype:</strong>
+  <%= @project.prjtype %>
+</p>
+
+<p>
+  <strong>Team members:</strong>
+  <%= @project.team_members %>
+</p>
+
+<p>
+  <strong>Client name:</strong>
+  <%= @project.client_name %>
+</p>
+
+<p>
+  <strong>Technology:</strong>
+  <%= @project.technology %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

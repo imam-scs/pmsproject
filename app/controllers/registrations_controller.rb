@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -22,11 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
    # Rails.logger.debug registration_params.inspect
    # resource = User.new(registration_params)
    # resource.oraganization_id = @organization.oraganization_id
-
   resource.oraganization_id = params[:organization][:name]
     # raise params.inspect
-
-   
    resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -56,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
-    resource.oraganization_id = params[:organization][:name]   
+   resource.oraganization_id = params[:organization][:name]
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated

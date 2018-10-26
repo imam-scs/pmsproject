@@ -67,7 +67,10 @@
             
 
                      <li class="active"><a href="/users/edit">Edit profile</a></li>
-                      <li class="active"><!-- <a data-method="delete" href="/users/sign_out">Sign Out</a> --><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
+                      <li class="active"><!-- <a data-method="delete" href="/users/sign_out">Sign Out</a> --><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), :method => :delete %></li>
+                      <li class="active"><a href="/projects/new">New Project</a></li>
+
+                      
 
                       <li style="float:right; color: orange;padding-top: 1%;">Logged in as <%= current_user.email %></li>
                  <% else %>

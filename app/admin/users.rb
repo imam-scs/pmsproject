@@ -4,7 +4,8 @@ ActiveAdmin.register User do
 #
 # permit_params :list, :of, :attributes, :on, :model
 #
-permit_params :name
+permit_params :name,:password ,:password_confirmation
+# ,:is_admin
 
 # or
 #
