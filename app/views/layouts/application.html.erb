@@ -58,23 +58,22 @@
           </div>
            <div class="collapse navbar-collapse" id="navbarResponsive">
              <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav" style="width: 100%">
-
+                <ul class="nav navbar-nav">
+                    <!-- <h2 style="line-height: 10px;">PMS</h2> -->
                    <li><a class="navbar-brand" href="/">Home</a></li>
                    <li><a class="navbar-brand" href="/pages/about">About</a></li>
+
+
                  <% if user_signed_in? %>
-                
-            
-
                      <li class="active"><a href="/users/edit">Edit profile</a></li>
-                      <li class="active"><!-- <a data-method="delete" href="/users/sign_out">Sign Out</a> --><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), :method => :delete %></li>
-                      <li class="active"><a href="/projects/new">New Project</a></li>
+                      <li class="active"><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), :method => :delete %></li>
+                      <li class="active"><a href="/projects/new">Project</a></li>
 
-                      
+                       <li class="active"><a href="/taskdetails/new">New Task</a></li> 
 
-                      <li style="float:right; color: orange;padding-top: 1%;">Logged in as <%= current_user.email %></li>
+                    <!--   <li style="float:right; color: orange;padding-top: 1%;">Logged in as <%= current_user.email %></li> -->
                  <% else %>
-                      <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+                      <li class="active" ><a href="/users/sign_up">Sign Up</a></li>
                       <li class="active"><a href="/users/sign_in">Login</a></li>
 
                  <% end %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
   
+  get 'uploadfile/index'
+  get 'uploadfile/new'
+  get 'uploadfile/create'
+  get 'uploadfile/destroy'
   resources :taskdetails
   resources :projects
   resources :organizations
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => {:confirmations => 'confirmations', :registrations => 'registrations'} 
+
+
   # devise_for :users,controllers: { confirmations: 'confirmations', registrations: 'registrations'} 
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

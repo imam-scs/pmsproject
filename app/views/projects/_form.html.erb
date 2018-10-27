@@ -1,4 +1,6 @@
-<%= form_with(model: project, local: true) do |form| %>
+<div class="authform">
+
+<%= form_with(model: project, local: true , html: {multipart: true}) do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,32 +13,41 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group"">
     <%= form.label :prjname %>
-    <%= form.text_field :prjname %>
+    <%= form.text_field :prjname ,class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group"">
     <%= form.label :prjtype %>
-    <%= form.text_field :prjtype %>
+    <%= form.text_field :prjtype ,class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group"">
     <%= form.label :team_members %>
-    <%= form.number_field :team_members %>
+    <%= form.number_field :team_members ,class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group"">
     <%= form.label :client_name %>
-    <%= form.text_field :client_name %>
+    <%= form.text_field :client_name ,class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group"">
     <%= form.label :technology %>
-    <%= form.text_field :technology %>
+    <%= form.text_field :technology ,class: "form-control"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+<div class="form-group"">
+    <%= form.label :file_upload %>
+    <%= form.file_field :image ,class: "form-control"%>
+  </div>
+ 
+
+  
+
+  <div class="form-group">
+    <%= form.submit%>
   </div>
 <% end %>
+</div>

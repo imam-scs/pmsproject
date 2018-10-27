@@ -1,3 +1,4 @@
+<div class="authform">
 <%= form_with(model: taskdetail, local: true) do |form| %>
   <% if taskdetail.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +12,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name ,class: "form-control"%>
   </div>
 
-  <div class="field">
+ <!--  <div class="form-group">
     <%= form.label :project_id %>
-    <%= form.number_field :project_id %>
+    <%= form.number_field :project_id ,class: "form-control" %>
+  </div> -->
+
+
+   <div class="form-group">
+    <%= form.label :project_list %>
+   <%= collection_select( :project, :prjname ,Project.all, :id, :prjname, { :multiple => false} ) %>
   </div>
 
-  <div class="actions">
+ <div class="form-group">
+    <%= form.label :days %>
+    <%= form.number_field :days ,class: "form-control"%>
+  </div>
+   <div class="form-group">
+    <%= form.label :status %>
+    <%= form.text_field :status ,class: "form-control"%>
+  </div>
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

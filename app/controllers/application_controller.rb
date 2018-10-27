@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	
+	# rescue_from User::NotAuthorized, :with => :user_not_authorized
 
 protect_from_forgery with: :exception
 before_action :configure_permitted_parameters, if: :devise_controller?
@@ -10,6 +10,12 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     end
 
 
+# private
+
+# def user_not_authorized
+#     flash[:error] = "If you want to access that account then You have to logged in"
+#     redirect_to :back
+#   end
 
 def authenticate_admin!
   if current_user && current_user.is_admin

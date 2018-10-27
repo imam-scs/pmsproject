@@ -80,4 +80,10 @@ Rails.application.configure do
       :password => "Imamscs9$1#11",
       :enable_starttls_auto => true
   }
+
+# Paperclip.options[:image_magick_path] = "//usr/local/bin/"
+# Paperclip.options[:command_path] = "/usr/local/bin/"
+Paperclip.options[:image_magick_path] = "/Users/imam/Documents/pmsproject/ImageMagick/bin"
+Paperclip.options[:command_path] = "/Users/imam/Documents/pmsproject/ImageMagick/bin"
+
 end
