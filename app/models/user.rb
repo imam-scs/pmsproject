@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :two_factor_authenticatable,
+         :otp_secret_encryption_key => ENV['TWO_FACTOR_SECRET_KEY_NAME']
+
 
 belongs_to :organization , required: false
 # accepts_nested_attributes_for :organization
@@ -8,7 +11,7 @@ belongs_to :organization , required: false
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :registerable, :confirmable,
         :recoverable, :rememberable,:trackable, :timeoutable,:validatable,:lockable
 # validates_confirmation_of :password
 #  validates_presence_of     :password, if: :password_required?
@@ -17,7 +20,12 @@ belongs_to :organization , required: false
 # validates_presence_of   :email, if: :email_required?
 
 
-
+number_regex = /\d[0-9]\)*\z/;
+validates_presence_of :name, :message =>"Enter a Full Name"
+validates_format_of :phnumber, :with =>  number_regex,:length => { :minimum => 10, :maximum => 15}, :message => "Only positive number without spaces are allowed"
+validates :password, presence: true, confirmation: true, length: { minimum: 8 }
+# validates_inclusion_of  :gender,   
+#                         :in => %w( male, female)
 # def password_required?
 #  !persisted? || !password.nil? || !password_confirmation.nil?
 # end
@@ -25,6 +33,21 @@ belongs_to :organization , required: false
 # def email_required?
 #    true
 # end
+def activate_otp
+    self.otp_required_for_login = true
+    self.otp_secret = unconfirmed_otp_secret
+    self.unconfirmed_otp_secret = nil
+    save!
+  end
+
+  def deactivate_otp
+    self.otp_required_for_login = false
+    self.otp_secret = nil
+    save!
+  end
+
+  
+
 
 def remember_me
     true

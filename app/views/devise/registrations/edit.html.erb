@@ -3,6 +3,12 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+
+  <div class="form-group">
+     <%= f.label :name %><br />
+     <%= f.text_field :name, autofocus: true,class: 'form-control' %>
+  </div>
+
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
@@ -31,11 +37,17 @@
     <%= f.password_field :current_password, autocomplete: "current-password" ,class: "form-control"%>
   </div>
 
-   <% if current_user.oraganization_id.nil? %>
+   <div class="form-group">
+    <%= f.label :phonenumber %><br />
+    <%= f.telephone_field :phnumber, class: 'form-control' %>
+  </div>
 
-   <%= f.label :organization %> 
-   <%= collection_select( :organization, :name ,Organization.all, :id, :name, { :multiple => false} ) %>
-  <% end %>
+ <div class="form-group">
+    <%= f.label :gender %>
+    <%= f.select :gender, options_for_select(["Please Select","male", "female"], selected: :gender) %>
+  </div>
+
+   
 
   <div class="form-group">
     <%= f.submit "Update" ,class: "button button-primary"%>

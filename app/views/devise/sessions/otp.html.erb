@@ -1,0 +1,8 @@
+<p>Please verify your OTP</p>
+<%= form_for(resource, as: resource_name, url: users_sessions_verify_otp_path,method: :post) do |f| %>
+
+  <%= f.label :otp_attempt %>
+  <%= f.text_field :otp_attempt %>
+  <%= f.submit "Verify" %>
+<% end %>
+

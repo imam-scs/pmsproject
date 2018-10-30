@@ -23,6 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
    # resource = User.new(registration_params)
    # resource.oraganization_id = @organization.oraganization_id
   resource.oraganization_id = params[:organization][:name]
+  
     # raise params.inspect
    resource.save
     yield resource if block_given?
@@ -113,7 +114,7 @@ resource.oraganization_id = params[:organization][:name]
   # end
 
 def registration_params
-    params.require(:user).permit(:email, :password, :password_confirmation,:oraganization_id)
+    params.require(:user).permit(:email, :password, :password_confirmation,:oraganization_id,:name,:phnumber,:gender)
   end
 
 end

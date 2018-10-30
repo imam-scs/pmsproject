@@ -4,7 +4,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 
  # before_filter :check_authorization
-  before_action :check_authorization
+  before_action :authenticate_user!
 
 
 

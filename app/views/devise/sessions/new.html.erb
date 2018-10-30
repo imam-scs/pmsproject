@@ -11,6 +11,12 @@
     <%= f.password_field :password, autocomplete: "current-password" ,class: "form-control"%>
   </div>
 
+
+  <div class="form-group">
+    <%= f.label :otp_attempt %><br />
+    <%= f.text_field :otp_attempt, autocomplete: "off" %>
+  </div>
+
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>

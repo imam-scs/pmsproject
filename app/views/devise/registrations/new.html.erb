@@ -6,16 +6,19 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+
+  <div class="form-group">
+     <%= f.label :username %><br />
+     <%= f.text_field :name, autofocus: true,class: 'form-control' %>
+  </div>
+
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control"%>
   </div>
 
 
-    <div class="form-group">
-     <%= f.label :organization_name%>
-     <%= collection_select( :organization, :name ,Organization.all, :id, :name, { :prompt=>true,:multiple => false} ) %>
-    </div>
+   
 
   <div class="form-group">
     <%= f.label :password %>
@@ -29,7 +32,24 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control"%>
   </div>
-  <br/>
+ 
+   <div class="form-group">
+     <%= f.label :organization_name%>
+     <%= collection_select( :organization, :name ,Organization.all, :id, :name, { :prompt=>true,:multiple => false} ) %>
+    </div>
+
+
+<div class="form-group">
+    <%= f.label :ph_number %><br />
+    <%= f.telephone_field :phnumber, :placeholder => "Your phone number" , class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+   <%= f.label :gender %><br/>
+  <%= f.select :gender, options_for_select([["Please select one Item", ""], "male", "female"])  %>
+
+  </div>
+<br/>
 
   <div class="form-group">
     <%= f.submit "Sign up" ,class: "button button-primary"%>
