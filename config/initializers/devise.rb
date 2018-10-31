@@ -310,4 +310,10 @@ config.email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+
+  # config.max_login_attempts = 3  # Maximum second factor attempts count.
+  # config.allowed_otp_drift_seconds = 30  # Allowed time drift between client and server.
+  # config.otp_length = 6  # OTP code length
+  # config.otp_secret_encryption_key = ENV['TWO_FACTOR_SECRET_KEY_NAME']
 end

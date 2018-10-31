@@ -3,6 +3,10 @@ class SessionsController < Devise::SessionsController
  def create
     return redirect_to new_user_session_path unless user_exist?
     user = User.find_by(id: session[:temp_user_id])
+
+    puts"============="
+    puts user
+    puts"============="
     return render :otp  if user.otp_required_for_login
     create_session(user)
   end
@@ -15,8 +19,19 @@ class SessionsController < Devise::SessionsController
   end
 
   def verify_otp
+    
     user = User.find_by(id: session[:temp_user_id])
+
+     puts "============"
+       puts user
+      puts "==========="
+      puts user.otp_secret
+      puts "==========="
+
+      
     if user.validate_and_consume_otp!(params[:otp_attempt], otp_secret: user.otp_secret)
+     
+     puts "Create Sessions"
       create_session(user)
     else
       render :otp
@@ -25,6 +40,11 @@ class SessionsController < Devise::SessionsController
 
   def create_session(user)
     sign_in(user)
+    puts "========="
+
+    puts session
+    puts user
+    puts "========="
     session.delete(:temp_user_id)
     respond_with user, location: after_sign_in_path_for(user)
   end
