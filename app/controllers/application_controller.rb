@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 	# rescue_from User::NotAuthorized, :with => :user_not_authorized
-before_action :authenticate_user!
+
 protect_from_forgery with: :exception
+before_action :authenticate_user!
 
 before_action :configure_permitted_parameters, if: :devise_controller?
  protected

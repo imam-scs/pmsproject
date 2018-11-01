@@ -41,8 +41,8 @@ devise_scope :user do
 
   resources :two_factor do
     collection do
-      get :activate
-      get :deactivate
+      post :activate
+      post :deactivate
     end
   end
 

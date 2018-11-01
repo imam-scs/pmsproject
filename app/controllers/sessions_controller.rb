@@ -22,18 +22,16 @@ class SessionsController < Devise::SessionsController
     
     user = User.find_by(id: session[:temp_user_id])
 
-     puts "============"
-       puts user
-      puts "==========="
-      puts user.otp_secret
-      puts "==========="
-
       
+      puts user.otp_secret.inspect
+      puts params[:otp_attempt].inspect
+      puts "==========="
+    
     if user.validate_and_consume_otp!(params[:otp_attempt], otp_secret: user.otp_secret)
-     
      puts "Create Sessions"
-      create_session(user)
+     create_session(user)
     else
+      puts "Else Condition"
       render :otp
     end
   end
@@ -73,6 +71,10 @@ class SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+
+def session_params
+    params.require(:user).permit(:email, :password, :remember_me, :otp_attempt)
+  end
 
 
 end

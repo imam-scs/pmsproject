@@ -16,9 +16,10 @@ belongs_to :organization , required: false
         :recoverable, :rememberable,:trackable, :timeoutable,:validatable,:lockable
 # validates_confirmation_of :password
 #  validates_presence_of     :password, if: :password_required?
-#           validates_confirmation_of :password, if: :password_required?
+        validates_confirmation_of :password, if: :password_required?
 #           validates_length_of       :password, within: password_length, allow_blank: true
-# validates_presence_of   :email, if: :email_required?
+
+validates_presence_of   :email, if: :email_required?
 
 
 number_regex = /\d[0-9]\)*\z/;
@@ -27,13 +28,13 @@ validates_format_of :phnumber, :with =>  number_regex,:length => { :minimum => 1
 # validates :password, presence: true, confirmation: true, length: { minimum: 8 }
 # validates_inclusion_of  :gender,   
 #                         :in => %w( male, female)
-# def password_required?
-#  !persisted? || !password.nil? || !password_confirmation.nil?
-# end
+ def password_required?
+  !persisted? || !password.nil? || !password_confirmation.nil?
+ end
 
-# def email_required?
-#    true
-# end
+ def email_required?
+   true
+ end
 def activate_otp
     self.otp_required_for_login = true
     puts "==============="
