@@ -4,6 +4,9 @@ class User < ApplicationRecord
          # ENV['TWO_FACTOR_SECRET_KEY_NAME']
 
 
+         
+
+
 belongs_to :organization , required: false
 # accepts_nested_attributes_for :organization
 # validates :email, presence: true, uniqueness: {scope: :oraganization_id}

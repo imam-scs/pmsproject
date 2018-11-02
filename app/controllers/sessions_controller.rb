@@ -18,14 +18,15 @@ class SessionsController < Devise::SessionsController
     true
   end
 
+
+
+
   def verify_otp
     
     user = User.find_by(id: session[:temp_user_id])
-
-      
-      puts user.otp_secret.inspect
-      puts params[:otp_attempt].inspect
-      puts "==========="
+    puts user.otp_secret.inspect
+    puts params[:otp_attempt].inspect
+    puts "==========="
     
     if user.validate_and_consume_otp!(params[:otp_attempt], otp_secret: user.otp_secret)
      puts "Create Sessions"
@@ -35,6 +36,8 @@ class SessionsController < Devise::SessionsController
       render :otp
     end
   end
+
+
 
   def create_session(user)
     sign_in(user)

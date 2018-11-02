@@ -25,6 +25,7 @@ class TwoFactorController < ApplicationController
   def deactivate
     current_user.deactivate_otp
     redirect_back(fallback_location: root_path)
+    
   end
 
   def two_factor_url
