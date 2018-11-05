@@ -3,13 +3,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.warden do |manager|
-    manager.default_strategies(:scope => :user).unshift :two_factor_authenticatable
-
-    # manager.default_strategies(scope: :user).unshift :two_factor_backupable
-
-  end
-
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -255,6 +248,7 @@ config.email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -313,10 +307,4 @@ config.email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-
-
-  # config.max_login_attempts = 3  # Maximum second factor attempts count.
-  # config.allowed_otp_drift_seconds = 30  # Allowed time drift between client and server.
-  # config.otp_length = 6  # OTP code length
-  # config.otp_secret_encryption_key = ENV['TWO_FACTOR_SECRET_KEY_NAME']
 end

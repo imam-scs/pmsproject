@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -42,10 +42,14 @@ gem 'jquery-rails'
 gem 'activeadmin'
 gem "paperclip"
 
-gem 'rqrcode_png'
-gem 'devise-two-factor'
 
-# gem 'devise_google_authenticator'
+# gem 'devise_google_authenticator', :path => 'lib/devise_google_authenticator'
+
+gem 'devise_google_authenticator', github: 'ronald05arias/devise_google_authenticator'
+
+ # gem 'devise_google_authenticator' , :git => 'https://github.com/ronald05arias/devise_google_authenticator.git',:branch => 'master'
+
+gem 'simple-line-icons-rails', github: 'hi5dev/simple-line-icons-rails', branch: 'railties-5.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

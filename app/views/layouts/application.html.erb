@@ -58,13 +58,14 @@
           </div>
            <div class="collapse navbar-collapse" id="navbarResponsive">
              <div class="collapse navbar-collapse">
+
               <div class="navbar-header">
       <a class="navbar-brand"  href="/">Project Management system</a>
       
     </div>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <h2 style="line-height: 10px;">PMS</h2> -->
-                 
+                   
 
 
                  <% if user_signed_in? %>
@@ -76,9 +77,10 @@
 
                     <!--   <li style="float:right; color: orange;padding-top: 1%;">Logged in as <%= current_user.email %></li> -->
                  <% else %>
-                   <li ><a class="navbar-brand navbar_home" style="color: #ffffff"  href="/">Home</a></li>
-                   <li><a class="navbar-brand navbar_home" style="color: #ffffff" href="/pages/about">About</a></li>
-                      <li class="active" style="background-color: #212529;"><a href="/users/sign_up">Sign Up</a></li>
+
+                    <li ><a class="navbar-brand" style="color: #ffffff"  href="/">Home</a></li>
+                   <li><a class="navbar-brand " style="color: #ffffff" href="/pages/about">About</a></li>
+                      <li class="active" style="background-color: #212529;" ><a href="/users/sign_up">Sign Up</a></li>
                       <li class="active" style="background-color: #212529;"><a href="/users/sign_in">Login</a></li>
 
                  <% end %>
@@ -86,7 +88,7 @@
               </ul>
             </div>
           </div>
-      </div>  
+      </div>
   </div>
 
            

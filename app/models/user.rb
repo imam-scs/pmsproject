@@ -1,11 +1,4 @@
 class User < ApplicationRecord
-  devise :two_factor_authenticatable,
-         :otp_secret_encryption_key => '9e61e42e77c5948cb4288f08e1f1b154d2eaafc5e3b2bbed8fb49875c8974b4cbd3728a62fa874a1f7969d9847883405662362d17e9472f1ab8bcef61a41e986'
-         # ENV['TWO_FACTOR_SECRET_KEY_NAME']
-
-
-         
-
 
 belongs_to :organization , required: false
 # accepts_nested_attributes_for :organization
@@ -15,49 +8,26 @@ belongs_to :organization , required: false
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :registerable, :confirmable,
+  devise :database_authenticatable, :registerable, :confirmable,
         :recoverable, :rememberable,:trackable, :timeoutable,:validatable,:lockable
 # validates_confirmation_of :password
 #  validates_presence_of     :password, if: :password_required?
-        validates_confirmation_of :password, if: :password_required?
+#           validates_confirmation_of :password, if: :password_required?
 #           validates_length_of       :password, within: password_length, allow_blank: true
-
-validates_presence_of   :email, if: :email_required?
-
+# validates_presence_of   :email, if: :email_required?
 
 number_regex = /\d[0-9]\)*\z/;
 validates_presence_of :name, :message =>"Enter a Full Name"
 validates_format_of :phnumber, :with =>  number_regex,:length => { :minimum => 10, :maximum => 15}, :message => "Only positive number without spaces are allowed"
-# validates :password, presence: true, confirmation: true, length: { minimum: 8 }
-# validates_inclusion_of  :gender,   
-#                         :in => %w( male, female)
- def password_required?
-  !persisted? || !password.nil? || !password_confirmation.nil?
- end
+validates :password, presence: true, confirmation: true, length: { minimum: 8 }
 
- def email_required?
+# def password_required?
+#  !persisted? || !password.nil? || !password_confirmation.nil?
+# end
+
+def email_required?
    true
- end
-def activate_otp
-    self.otp_required_for_login = true
-    puts "==============="
-    puts unconfirmed_otp_secret
-    puts "==============="
-    self.otp_secret = unconfirmed_otp_secret
-
-
-    self.unconfirmed_otp_secret = nil
-    save!
-  end
-
-  def deactivate_otp
-    self.otp_required_for_login = false
-    self.otp_secret = nil
-    save!
-  end
-
-  
-
+end
 
 def remember_me
     true

@@ -1,7 +1,6 @@
 class TaskdetailsController < InheritedResources::Base
 before_action :set_taskdetail, only: [:show, :edit, :update]
-  before_action :authenticate_user!
-
+before_action :authenticate_user!
 def index
  @taskdetails = Taskdetail.all
  
@@ -43,6 +42,8 @@ end
 
 def update
 @taskdetail = Taskdetail.find(params[:id])
+@taskdetails.project_id = params[:project][:prjname]
+
 respond_to do |format|
       if @taskdetail.update(taskdetail_params)
         format.html { redirect_to @taskdetail, notice: 'Succssfully Updated task data' }

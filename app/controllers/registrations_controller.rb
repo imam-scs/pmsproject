@@ -23,7 +23,6 @@ class RegistrationsController < Devise::RegistrationsController
    # resource = User.new(registration_params)
    # resource.oraganization_id = @organization.oraganization_id
   resource.oraganization_id = params[:organization][:name]
-  
     # raise params.inspect
    resource.save
     yield resource if block_given?

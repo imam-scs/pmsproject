@@ -4,8 +4,8 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 
  # before_filter :check_authorization
-  before_action :authenticate_user!
-
+  # before_action :check_authorization
+before_action :authenticate_user!
 
 
 
@@ -92,12 +92,12 @@ end
   #   raise User::NotAuthorized unless current_user.id?
   # end
 
-def check_authorization
-    unless current_user
-      flash[:error] = "If you want to do anything in project then you have to logged in"
-      redirect_to new_user_session_path
-end
-end
+# def check_authorization
+#     unless current_user
+#       flash[:error] = "If you want to do anything in project then you have to logged in"
+#       redirect_to new_user_session_path
+# end
+
 
    def set_project
       @project = Project.find(params[:id])

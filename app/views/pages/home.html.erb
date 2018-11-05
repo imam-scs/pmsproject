@@ -14,20 +14,10 @@
 <% end %>-->
 
 
-<% if current_user %>
-  <% if !current_user.otp_required_for_login %>
-    <%= button_to "Enable 2FA", activate_two_factor_index_path, :method => :post %>
-  <% end %>
 
-  <% if current_user.otp_required_for_login %>
-    <%= button_to "Disable 2FA", deactivate_two_factor_index_path, :method => :post %>
-
-    <br>
-  <% end %>
-  <% end %>
 <% if user_signed_in? %>
 
- <h2>To a page confirmation signin message</h2>
+<h2>To a page confirmation signin message</h2>
  <h6>Thank you!You have successfully logged in </h6>
   
 <% else %>
@@ -35,10 +25,3 @@
   
  <!--  <%= link_to 'Sign up', new_user_registration_path, class: 'btn button-primary btn-large' %> -->
 <% end %>
-
-
-
-
-
-
-
