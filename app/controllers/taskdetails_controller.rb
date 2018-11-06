@@ -1,6 +1,7 @@
 class TaskdetailsController < InheritedResources::Base
 before_action :set_taskdetail, only: [:show, :edit, :update]
 before_action :authenticate_user!
+# before_filter :authenticate_user!
 def index
  @taskdetails = Taskdetail.all
  

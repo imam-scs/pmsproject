@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	attr_accessor :gauth_token
 
 belongs_to :organization , required: false
 # accepts_nested_attributes_for :organization
@@ -8,7 +9,7 @@ belongs_to :organization , required: false
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :google_authenticatable, :database_authenticatable, :registerable, :confirmable,
         :recoverable, :rememberable,:trackable, :timeoutable,:validatable,:lockable
 # validates_confirmation_of :password
 #  validates_presence_of     :password, if: :password_required?

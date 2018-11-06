@@ -43,9 +43,11 @@ gem 'activeadmin'
 gem "paperclip"
 
 
-# gem 'devise_google_authenticator', :path => 'lib/devise_google_authenticator'
+ gem 'devise_google_authenticator', :path => 'lib/devise_google_authenticator'
 
-gem 'devise_google_authenticator', github: 'ronald05arias/devise_google_authenticator'
+# gem 'devise_google_authenticator', :path => 'lib/gems/devise_google_authenticator-0.3.16'
+
+# gem 'devise_google_authenticator', github: 'ronald05arias/devise_google_authenticator'
 
  # gem 'devise_google_authenticator' , :git => 'https://github.com/ronald05arias/devise_google_authenticator.git',:branch => 'master'
 
