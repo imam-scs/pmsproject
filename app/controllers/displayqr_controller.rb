@@ -1,5 +1,5 @@
-class DisplayqrController < ApplicationController
-	prepend_before_filter :authenticate_scope!, :only => [:show, :update, :refresh]
+class DisplayqrController < DeviseController
+	prepend_before_action :authenticate_scope!, :only => [:show, :update, :refresh]
   def show
 
   	 if resource.nil? || resource.gauth_secret.nil?

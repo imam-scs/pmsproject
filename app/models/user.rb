@@ -26,6 +26,11 @@ validates :password, presence: true, confirmation: true, length: { minimum: 8 }
 #  !persisted? || !password.nil? || !password_confirmation.nil?
 # end
 
+
+# has_one_time_password
+#   enum otp_module: { disabled: 0, enabled: 1 }, _prefix: true
+#   attr_accessor :otp_code_token
+
 def email_required?
    true
 end
@@ -56,6 +61,14 @@ def needs_password_change_email?
  end
 
 
+
+def generate_secret
+
+ User.where(:gauth_secret => nil).each do |user|
+ user.send(:assign_auth_secret)
+ user.save
+end
+end
 
 # after_update :send_password_reset_email
 # def send_password_reset_email
